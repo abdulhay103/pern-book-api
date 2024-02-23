@@ -50,3 +50,15 @@ app.delete("/books/:id", async (req, res) => {
     res.json({ message: error.message });
   }
 });
+
+// Update a book
+app.put("/books/:id", async (req, res) => {
+  try {
+    const { title, desc } = req.body;
+    res
+      .status(201)
+      .json({ message: `Successfully update the book ${(title, desc)}` });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
